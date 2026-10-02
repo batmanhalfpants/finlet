@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-[#E5E5EA] font-sans text-ios-label antialiased;
+    -webkit-tap-highlight-color: transparent;
+    font-feature-settings: 'cv11', 'ss01', 'tnum' 0;
+    overscroll-behavior: none;
+  }
+
+  button {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .pt-safe {
+    padding-top: max(env(safe-area-inset-top), 0px);
+  }
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom), 12px);
+  }
+}
+
+/* Recharts: kill the default focus outline on click */
+.recharts-wrapper,
+.recharts-surface {
+  outline: none;
+}
